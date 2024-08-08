@@ -14,5 +14,5 @@ app.get("/", (req, res) => {
 })
 
 app.listen(PUERTO, () => {
-    console.log(`Escuchando el puerto ${PUERTO}`)
+    console.log(`Escuchando en el puerto ${PUERTO}`)
 })
