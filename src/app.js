@@ -1,6 +1,7 @@
 import express from "express"
-import "./database.js";
 import todoRouter from "./routes/todo.router.js"
+import exphbs from "express-handlebars"
+import "./database.js";
 
 
 const app = express()
@@ -10,6 +11,11 @@ const PUERTO = 8080
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static("./src/public"))
+
+//Express-handlebars
+app.engine("handlebars", exphbs.engine())
+app.set("view engine", "handlebars")
+app.set("views","./src/views")
 
 //Rutas
 app.use("/", todoRouter)
