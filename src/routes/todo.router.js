@@ -1,20 +1,15 @@
 import { Router } from "express" 
-
+import TodoModel from "../models/todo.model.js"
 const router = Router()
 
-
-// function identificarUsuario(req, res, next) {
-//     //cuerpo de la funcion
-
-//     next()// sino colocas el next da error, es para qeu pase a la siguiente middleware o ya avanzar al servidor
-// }
-
-// router.get('/usuario-privado', identificarUsuario, (req,res) => {
-    
-// })
-
-router.get("/", (req,res) => {
-    res.send("holis, estamos en backend 2")
+//Ruta principal que muestra todos los todos
+router.get("/", async (req,res) => {
+    try {
+        const todos = await TodoModel.find().lean()
+        res.render("todos", {todos})
+    } catch (error) {
+        
+    }
 })
 
 export default router

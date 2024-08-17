@@ -1,4 +1,4 @@
-import mongoose from "mongosoe"
+import mongoose from "mongoose"
 
 const schema = new mongoose.Schema({
     title: String,
