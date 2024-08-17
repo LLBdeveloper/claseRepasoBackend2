@@ -1,1 +1,15 @@
 <h1>todo list</h1>
+
+{{#each todos}}
+    <div>
+        <h3> Title: {{title}} </h3>
+        <p> Description: {{description}}</p>
+        {{#if completed}}
+            <p> Completada</p>
+        {{else}}
+            <p>Pendiente</p>
+        {{/if}}
+    </div>
+{{/each}}
+
+<a href="/new"> Crear un nuevo ToDO</a>
